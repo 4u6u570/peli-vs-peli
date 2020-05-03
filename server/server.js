@@ -10,8 +10,18 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+app.post('/competencias', controlador.crearCompetencia);
 app.get('/competencias', controlador.buscarCompetencias);
 app.get('/competencias/:id/peliculas', controlador.obtenerDosPeliculas);
+app.post('/competencias/:id/voto', controlador.votar);
+app.get('/competencias/:id/resultados', controlador.obtenerResultados);
+app.get('/generos', controlador.obtenerGeneros);
+app.get('/actores', controlador.obtenerActores);
+app.get('/directores', controlador.obtenerDirectores);
+app.delete('/competencias/:id/votos', controlador.eliminarVotos);
+app.get('/competencias/:id', controlador.obtenerCompetencia);
+app.delete('/competencias/:id', controlador.eliminarCompetencia);
+app.put('/competencias/:id', controlador.modificarCompetencia);
 
 //seteamos el puerto en el cual va a escuchar los pedidos la aplicación
 var puerto = '8080';
